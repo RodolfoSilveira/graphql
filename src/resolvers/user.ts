@@ -1,6 +1,6 @@
-import models from './app/models'
+import models from '../app/models'
 import jwt from 'jsonwebtoken'
-import authConfig from './config/auth.json'
+import authConfig from '../config/auth.json'
 import bcrypt from 'bcryptjs'
 
 function generateToken (params = {}): string {

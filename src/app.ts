@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import { GraphQLServer } from 'graphql-yoga'
-import resolvers from './resolvers'
+import userResolvers from './resolvers/user'
 import path from 'path'
 
 class App {
@@ -22,8 +22,8 @@ class App {
 
   private routes ():void {
     const server = new GraphQLServer({
-      typeDefs: path.resolve(__dirname, 'schema.graphql'),
-      resolvers
+      typeDefs: path.resolve(__dirname, 'typeDefs', 'user.graphql'),
+      resolvers: userResolvers
     })
 
     server.start(({ port }): void => {
